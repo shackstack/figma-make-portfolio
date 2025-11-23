@@ -54,8 +54,7 @@ export function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-emerald-400 text-lg tracking-wider"
           >
-            안녕하세요, 저는 서비스 안정성과 사용자 경험을 동시에 개선하는
-            방법을 고민
+            안녕하세요, 저는 서비스 안정성과 사용자 경험을 고민하는
           </motion.p>
 
           <motion.h1
