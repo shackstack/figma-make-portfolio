@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
   Dialog,
@@ -65,24 +65,28 @@ export function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
                   <div className="absolute top-4 right-4 flex space-x-2">
-                    <motion.a
-                      href={project.github}
-                      onClick={(e) => e.stopPropagation()}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
-                    >
-                      <Github className="w-5 h-5" />
-                    </motion.a>
-                    <motion.a
-                      href={project.live}
-                      onClick={(e) => e.stopPropagation()}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </motion.a>
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        onClick={(e) => e.stopPropagation()}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                      >
+                        <Github className="w-5 h-5" />
+                      </motion.a>
+                    )}
+                    {project.homepage && (
+                      <motion.a
+                        href={project.homepage}
+                        onClick={(e) => e.stopPropagation()}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </motion.a>
+                    )}
                   </div>
                 </div>
 
@@ -174,20 +178,24 @@ export function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-black/40"></div>
                   <div className="absolute top-3 right-3 flex space-x-2">
-                    <a
-                      href={project.github}
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={project.live}
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -295,8 +303,20 @@ export function ProjectsSection() {
                                 key={idx}
                                 className="bg-gray-800/50 rounded-lg p-5 border border-white/10"
                               >
-                                <h5 className="text-white mb-3">
-                                  {achievement.title}
+                                <h5 className="text-white mb-3 flex items-center gap-2">
+                                  {achievement?.link ? (
+                                    <a
+                                      href={achievement.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="hover:text-emerald-400 transition-colors duration-300 flex items-start gap-2 group"
+                                    >
+                                      <span>{achievement.title}</span>
+                                      <ExternalLink className="w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </a>
+                                  ) : (
+                                    achievement.title
+                                  )}
                                 </h5>
                                 <div className="space-y-3">
                                   <div>
@@ -349,32 +369,36 @@ export function ProjectsSection() {
 
                 {/* Links */}
                 <div className="flex gap-4 pt-4">
-                  <Button
-                    asChild
-                    className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white"
-                  >
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {selectedProject.github && (
+                    <Button
+                      asChild
+                      className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white"
                     >
-                      <Github className="w-4 h-4 mr-2" />
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
-                  >
-                    <a
-                      href={selectedProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
+                      </a>
+                    </Button>
+                  )}
+                  {selectedProject.live && (
+                    <Button
+                      asChild
+                      className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
