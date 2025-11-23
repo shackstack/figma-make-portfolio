@@ -1,32 +1,34 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { useState, useEffect } from 'react'
+import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 
 export function Navigation() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+        scrolled
+          ? "bg-black/80 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -39,9 +41,9 @@ export function Navigation() {
           >
             &lt;DevPortfolio /&gt;
           </motion.div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((item, index) => (
+            {["home", "about", "skills", "projects"].map((item, index) => (
               <motion.button
                 key={item}
                 initial={{ opacity: 0, y: -20 }}
@@ -57,5 +59,5 @@ export function Navigation() {
         </div>
       </div>
     </motion.nav>
-  )
+  );
 }

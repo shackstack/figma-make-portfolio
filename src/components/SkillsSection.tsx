@@ -1,38 +1,54 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { Card } from './ui/card'
+import { motion } from "motion/react";
+import { Card } from "./ui/card";
 
 export function SkillsSection() {
   const skillCategories = [
     {
-      title: 'Frontend',
+      title: "Frontend",
       skills: [
-        { name: 'React', level: 95, color: 'from-blue-400 to-blue-600' },
-        { name: 'TypeScript', level: 95, color: 'from-blue-500 to-blue-700' },
-        { name: 'Tanstack Query', level: 90, color: 'from-red-400 to-red-600' },
-        { name: 'Emotion', level: 85, color: 'from-pink-400 to-pink-600' }
-      ]
+        { name: "React", level: 95, color: "from-blue-400 to-blue-600" },
+        { name: "TypeScript", level: 95, color: "from-blue-500 to-blue-700" },
+        { name: "Tanstack Query", level: 90, color: "from-red-400 to-red-600" },
+        { name: "Emotion", level: 85, color: "from-pink-400 to-pink-600" },
+      ],
     },
     {
-      title: 'Tools & Build',
+      title: "Tools & Build",
       skills: [
-        { name: 'Vite', level: 90, color: 'from-purple-400 to-purple-600' },
-        { name: 'Git/Bitbucket', level: 92, color: 'from-gray-400 to-gray-600' },
-        { name: 'Storybook', level: 85, color: 'from-pink-500 to-pink-700' },
-        { name: 'OpenAPI TS', level: 88, color: 'from-green-400 to-green-600' }
-      ]
+        { name: "Vite", level: 90, color: "from-purple-400 to-purple-600" },
+        {
+          name: "Git/Bitbucket",
+          level: 92,
+          color: "from-gray-400 to-gray-600",
+        },
+        { name: "Storybook", level: 85, color: "from-pink-500 to-pink-700" },
+        { name: "OpenAPI TS", level: 88, color: "from-green-400 to-green-600" },
+      ],
     },
     {
-      title: 'DevOps & Cloud',
+      title: "DevOps & Cloud",
       skills: [
-        { name: 'AWS S3', level: 85, color: 'from-orange-400 to-orange-600' },
-        { name: 'CloudFront', level: 85, color: 'from-orange-500 to-orange-700' },
-        { name: 'CI/CD Pipeline', level: 82, color: 'from-blue-600 to-blue-800' },
-        { name: 'Google Sheets API', level: 80, color: 'from-green-500 to-green-700' }
-      ]
-    }
-  ]
+        { name: "AWS S3", level: 85, color: "from-orange-400 to-orange-600" },
+        {
+          name: "CloudFront",
+          level: 85,
+          color: "from-orange-500 to-orange-700",
+        },
+        {
+          name: "CI/CD Pipeline",
+          level: 82,
+          color: "from-blue-600 to-blue-800",
+        },
+        {
+          name: "Google Sheets API",
+          level: 80,
+          color: "from-green-500 to-green-700",
+        },
+      ],
+    },
+  ];
 
   return (
     <section id="skills" className="py-20 bg-black">
@@ -44,13 +60,15 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl text-white mb-6">Skills & Technologies</h2>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">
+            Skills & Technologies
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            실무에서 활용하고 있는 기술 스택과 도구들
+            일상에서 활용하고 있는 기술 스택과 도구들
           </p>
         </motion.div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
@@ -61,32 +79,38 @@ export function SkillsSection() {
               viewport={{ once: true }}
             >
               <Card className="p-6 bg-gray-900/50 border-white/10 backdrop-blur-sm">
-                <h3 className="text-xl text-white mb-6 text-center">{category.title}</h3>
+                <h3 className="text-xl text-white mb-6 text-center">
+                  {category.title}
+                </h3>
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ 
-                        delay: categoryIndex * 0.2 + skillIndex * 0.1, 
-                        duration: 0.6 
+                      transition={{
+                        delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                        duration: 0.6,
                       }}
                       viewport={{ once: true }}
                       className="space-y-2"
                     >
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-300 text-sm">{skill.name}</span>
-                        <span className="text-gray-400 text-xs">{skill.level}%</span>
+                        <span className="text-gray-300 text-sm">
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400 text-xs">
+                          {skill.level}%
+                        </span>
                       </div>
                       <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
-                          transition={{ 
+                          transition={{
                             delay: categoryIndex * 0.2 + skillIndex * 0.1 + 0.3,
                             duration: 1,
-                            ease: "easeOut"
+                            ease: "easeOut",
                           }}
                           viewport={{ once: true }}
                           className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
@@ -101,7 +125,7 @@ export function SkillsSection() {
             </motion.div>
           ))}
         </div>
-        
+
         {/* Tech Stack Icons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -113,8 +137,18 @@ export function SkillsSection() {
           <h3 className="text-2xl text-white mb-8">Technologies I Work With</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             {[
-              'React', 'TypeScript', 'Tanstack Query', 'Vite', 'Emotion', 'Storybook',
-              'OpenAPI', 'Swiper', 'AWS S3', 'CloudFront', 'Bitbucket Pipelines', 'Git'
+              "React",
+              "TypeScript",
+              "Tanstack Query",
+              "Vite",
+              "Emotion",
+              "Storybook",
+              "OpenAPI",
+              "Swiper",
+              "AWS S3",
+              "CloudFront",
+              "Bitbucket Pipelines",
+              "Git",
             ].map((tech, index) => (
               <motion.span
                 key={tech}
@@ -131,5 +165,5 @@ export function SkillsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
