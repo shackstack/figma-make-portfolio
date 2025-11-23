@@ -1,12 +1,37 @@
-export const PROJECTS_DATA = [
+import celuveatThumbnail from "./images/celuveat_thumbnail.jpg";
+import cre8orclubThumbnail from "./images/cre8orclub_thumbnail.jpeg";
+import acuvueThumbnail from "./images/acuvue_thumbnail.jpg";
+
+export interface Achievement {
+  title: string;
+  problem: string;
+  solution: string;
+  result: string;
+  link?: string;
+}
+
+export interface Project {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  achievements: Achievement[];
+  homepage?: string;
+  live?: string;
+  github?: string;
+  featured: boolean;
+}
+
+export const PROJECTS_DATA: Project[] = [
   {
     title: "크리에이터 클럽",
     company: "라텔앤드파트너즈",
     period: "2025.01 ~ 진행중",
     description:
       '예술업계 종사자들을 위한 채용 플랫폼 앱인 "크리에이터클럽" 개발에 WebView 개발을 담당하였습니다. 개발 환경 설정, 기능 개발, 배포 파이프라인 구축 등의 작업을 했습니다.',
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    image: cre8orclubThumbnail,
     technologies: [
       "React",
       "TypeScript",
@@ -65,8 +90,73 @@ export const PROJECTS_DATA = [
         result: "배포 속도와 안정성을 크게 향상시켰습니다.",
       },
     ],
-    github: "#",
-    live: "#",
+    homepage: "https://cre8orclub.com/",
+    live: "https://apps.apple.com/kr/app/cre8orclub/id6737261549",
+    featured: true,
+  },
+  {
+    title: "충무로 맛집은 여기, 맘마미아",
+    company: "개인 프로젝트",
+    period: "2025.08 ~ 진행중",
+    description:
+      "충무로역 1km 반경 내의 식당을 소개하여, 직장인들의 점심 맛집을 추천해주는 서비스입니다. 개인 프로젝트로 최신 기술 스택과 자동화 도구를 활용하여 개발 생산성을 극대화했습니다.",
+    image:
+      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tanstack Query",
+      "Vite",
+      "Emotion",
+      "Storybook",
+      "OpenAPI TypeScript",
+      "S3",
+      "CloudFront",
+    ],
+    achievements: [
+      {
+        title: "OpenAPI TypeScript을 활용한 스키마 동기화 및 타입 생성 자동화",
+        problem:
+          "백엔드 API 스키마가 변경될 때마다 수동으로 타입을 업데이트해야 하여 개발 효율성이 떨어지고 타입 불일치 오류가 발생할 수 있었습니다.",
+        solution:
+          "OpenAPI TypeScript를 활용하여 API 스키마에서 타입을 자동으로 생성하고 동기화하는 시스템을 구축했습니다.",
+        result:
+          "타입 생성 과정이 자동화되어 개발 속도가 향상되었고, 타입 불일치로 인한 런타임 오류를 사전에 방지할 수 있게 되었습니다.",
+      },
+      {
+        title: "Figma, Github MCP를 활용한 업무(UI 작업 및 PR 생성 등) 자동화",
+        problem:
+          "UI 컴포넌트 개발과 PR 생성 등 반복적인 작업에 많은 시간이 소요되어 개발 생산성이 저하되었습니다.",
+        solution:
+          "Figma MCP를 활용하여 디자인에서 컴포넌트 코드를 자동 생성하고, Github MCP를 활용하여 PR 생성 등 워크플로우를 자동화했습니다.",
+        result:
+          "반복적인 작업이 자동화되어 개발 생산성이 크게 향상되었고, 개발자가 핵심 기능 개발에 더 집중할 수 있게 되었습니다.",
+      },
+      {
+        title:
+          "S3, CloudFront를 이용한 배포환경 구축 및 Github Action을 통해 배포 자동화",
+        problem:
+          "수동 배포 과정이 번거롭고 실수로 인한 배포 오류가 발생할 수 있었으며, 배포 속도가 느렸습니다.",
+        solution:
+          "S3와 CloudFront를 활용한 CDN 배포 환경을 구축하고, Github Actions를 통해 CI/CD 파이프라인을 구축하여 배포를 자동화했습니다.",
+        result:
+          "배포 과정이 자동화되어 배포 속도와 안정성이 크게 향상되었고, 개발자가 배포에 소요되는 시간을 절약할 수 있게 되었습니다.",
+        link: "https://github.com/Mamma-miaa/Mamma-Mia-Frontend/pull/8",
+      },
+      {
+        title: "접근 편의성 및 더 나은 모바일 경험 제공을 위해 PWA 개발",
+        problem:
+          "모바일 환경에서 웹사이트 접근성이 떨어지고, 네이티브 앱과 같은 사용자 경험을 제공하기 어려웠습니다.",
+        solution:
+          "Progressive Web App(PWA)을 개발하여 모바일에서 앱처럼 설치하고 사용할 수 있도록 구현했습니다.",
+        result:
+          "사용자 접근성이 향상되었고, 모바일에서 더 나은 사용자 경험을 제공할 수 있게 되었습니다.",
+        link: "https://github.com/Mamma-miaa/Mamma-Mia-Frontend/pull/18",
+      },
+    ],
+    github: "https://github.com/Mamma-miaa/Mamma-Mia-Frontend",
+    live: "https://mamma-mia.site",
+    homepage: "https://mamma-mia.site",
     featured: true,
   },
   {
@@ -75,8 +165,7 @@ export const PROJECTS_DATA = [
     period: "2024.07 ~ 2024.12",
     description:
       "외국계 클라이언트의 웹 서비스를 운영하고 신규 기능 및 웹 서비스를 개발했습니다. Canvas API, 웹 컴포넌트, TypeScript 유틸리티 타입, Figma MCP 등 다양한 기술을 활용하여 개발 생산성과 서비스 품질을 향상시켰습니다.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    image: acuvueThumbnail,
     technologies: [
       "React",
       "TypeScript",
@@ -136,9 +225,7 @@ export const PROJECTS_DATA = [
           "팀원들이 Slack 알림만으로도 문제의 원인을 빠르게 파악하고 대응 시간을 단축할 수 있었으며, 운영 효율성과 협업 속도도 향상되었습니다.",
       },
     ],
-    github: "#",
-    live: "#",
-    featured: true,
+    featured: false,
   },
   {
     title: "셀럽잇",
@@ -146,8 +233,7 @@ export const PROJECTS_DATA = [
     period: "2023.06 ~ 2023.10",
     description:
       "셀럽들이 다녀간 맛집에 대한 정보를 탐색하는 과정이 번거롭고 한 눈에 파악하기 어렵다는 문제에 착안하여 시작한 프로젝트입니다. 셀럽들이 다녀간 맛집, 인기 지역의 셀럽 맛집 정보, 지도를 통한 탐색 기능, 위시리스트, 그리고 사진 리뷰 등의 서비스를 제공하며 사용자 경험을 최적화했습니다. 프론트엔드 3명과 백엔드 4명으로 구성된 팀에서 진행되었으며, 주간 활성 사용자 수(WAU) 2000명을 달성하는 성과를 이루었습니다.",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
+    image: celuveatThumbnail,
     technologies: [
       "React",
       "TypeScript",
@@ -167,6 +253,7 @@ export const PROJECTS_DATA = [
           "S3와 CloudFront를 활용한 CDN 구축을 통해 정적 자산을 전 세계 엣지 서버에 분산 배치했습니다.",
         result:
           "LCP를 14.2초에서 2.4초로 대폭 개선(83% 향상)하여 사용자 경험을 크게 향상시켰습니다.",
+        link: "https://github.com/woowacourse-teams/2023-celuveat/blob/main/.github/workflows/frontend-prod-cd.yml",
       },
       {
         title:
@@ -177,6 +264,7 @@ export const PROJECTS_DATA = [
           "Tree-shaking과 code-splitting을 활용하여 번들 사이즈를 최적화했고, JPEG에서 WebP로의 점진적 향상 및 gzip 압축을 적용하여 이미지 최적화를 달성했습니다. 또한 font-preload를 사용하여 폰트 로딩 지연 문제를 해결했습니다.",
         result:
           "Lighthouse Performance 점수를 72점에서 89점으로 향상시켰습니다.",
+        link: "https://www.youtube.com/watch?si=IdUrBx7fHf2d8849&v=ut10rvh1vug&feature=youtu.be",
       },
       {
         title: "Github Action을 이용한 Cypress E2E 테스트 자동화",
@@ -185,6 +273,7 @@ export const PROJECTS_DATA = [
         solution:
           "Github Action을 이용한 Cypress E2E 테스트 자동화를 구현하여 CI/CD 파이프라인에 통합했습니다.",
         result: "QA 비용을 50% 절감하여 개발 효율성을 크게 향상시켰습니다.",
+        link: "https://github.com/woowacourse-teams/2023-celuveat/blob/main/frontend/cypress/e2e/desktop/like.cy.ts",
       },
       {
         title: "Google Analytics 기반 UX 개선",
@@ -221,6 +310,7 @@ export const PROJECTS_DATA = [
         solution:
           "MSW(Mock Service Worker)를 도입하여 백엔드 API 없이도 프론트엔드 개발을 진행할 수 있도록 했고, Storybook을 도입하여 컴포넌트를 독립적으로 개발하고 문서화했습니다.",
         result: "소통 비용을 줄이고 개발 생산성을 크게 증가시켰습니다.",
+        link: "https://github.com/woowacourse-teams/2023-celuveat/pull/538",
       },
       {
         title: "Zustand와 React-Query를 활용한 상태 관리 최적화",
@@ -231,70 +321,7 @@ export const PROJECTS_DATA = [
         result: "상태 관리가 명확해지고 유지보수성이 향상되었습니다.",
       },
     ],
-    github: "#",
-    live: "#",
-    featured: false,
-  },
-  {
-    title: "충무로 맛집은 여기, 맘마미아",
-    company: "개인 프로젝트",
-    period: "2025.08 ~ 진행중",
-    description:
-      "충무로역 1km 반경 내의 식당을 소개하여, 직장인들의 점심 맛집을 추천해주는 서비스입니다. 개인 프로젝트로 최신 기술 스택과 자동화 도구를 활용하여 개발 생산성을 극대화했습니다.",
-    image:
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tanstack Query",
-      "Vite",
-      "Emotion",
-      "Storybook",
-      "OpenAPI TypeScript",
-      "S3",
-      "CloudFront",
-    ],
-    achievements: [
-      {
-        title: "OpenAPI TypeScript을 활용한 스키마 동기화 및 타입 생성 자동화",
-        problem:
-          "백엔드 API 스키마가 변경될 때마다 수동으로 타입을 업데이트해야 하여 개발 효율성이 떨어지고 타입 불일치 오류가 발생할 수 있었습니다.",
-        solution:
-          "OpenAPI TypeScript를 활용하여 API 스키마에서 타입을 자동으로 생성하고 동기화하는 시스템을 구축했습니다.",
-        result:
-          "타입 생성 과정이 자동화되어 개발 속도가 향상되었고, 타입 불일치로 인한 런타임 오류를 사전에 방지할 수 있게 되었습니다.",
-      },
-      {
-        title: "Figma, Github MCP를 활용한 업무(UI 작업 및 PR 생성 등) 자동화",
-        problem:
-          "UI 컴포넌트 개발과 PR 생성 등 반복적인 작업에 많은 시간이 소요되어 개발 생산성이 저하되었습니다.",
-        solution:
-          "Figma MCP를 활용하여 디자인에서 컴포넌트 코드를 자동 생성하고, Github MCP를 활용하여 PR 생성 등 워크플로우를 자동화했습니다.",
-        result:
-          "반복적인 작업이 자동화되어 개발 생산성이 크게 향상되었고, 개발자가 핵심 기능 개발에 더 집중할 수 있게 되었습니다.",
-      },
-      {
-        title:
-          "S3, CloudFront를 이용한 배포환경 구축 및 Github Action을 통해 배포 자동화",
-        problem:
-          "수동 배포 과정이 번거롭고 실수로 인한 배포 오류가 발생할 수 있었으며, 배포 속도가 느렸습니다.",
-        solution:
-          "S3와 CloudFront를 활용한 CDN 배포 환경을 구축하고, Github Actions를 통해 CI/CD 파이프라인을 구축하여 배포를 자동화했습니다.",
-        result:
-          "배포 과정이 자동화되어 배포 속도와 안정성이 크게 향상되었고, 개발자가 배포에 소요되는 시간을 절약할 수 있게 되었습니다.",
-      },
-      {
-        title: "접근 편의성 및 더 나은 모바일 경험 제공을 위해 PWA 개발",
-        problem:
-          "모바일 환경에서 웹사이트 접근성이 떨어지고, 네이티브 앱과 같은 사용자 경험을 제공하기 어려웠습니다.",
-        solution:
-          "Progressive Web App(PWA)을 개발하여 모바일에서 앱처럼 설치하고 사용할 수 있도록 구현했습니다.",
-        result:
-          "사용자 접근성이 향상되었고, 모바일에서 더 나은 사용자 경험을 제공할 수 있게 되었습니다.",
-      },
-    ],
-    github: "#",
-    live: "#",
+    github: "https://github.com/woowacourse-teams/2023-celuveat",
     featured: false,
   },
 ];
