@@ -111,7 +111,7 @@ export function HeroSection() {
             <div className="flex items-center space-x-4">
               {[
                 { icon: Github, href: "https://github.com/shackstack" },
-                { icon: Mail, href: "minseok1061@gmail.com" },
+                { icon: Mail, href: "mailto:minseok1061@gmail.com" },
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
