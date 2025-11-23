@@ -1,19 +1,22 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { Button } from './ui/button'
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
+import { motion } from "motion/react";
+import { Button } from "./ui/button";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 export function HeroSection() {
   const scrollToProjects = () => {
-    const element = document.getElementById('projects')
+    const element = document.getElementById("projects");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
@@ -21,18 +24,18 @@ export function HeroSection() {
             key={i}
             className="absolute w-1 h-1 bg-white/20 rounded-full"
             initial={{ opacity: 0 }}
-            animate={{ 
+            animate={{
               opacity: [0, 1, 0],
-              scale: [0, 1, 0]
+              scale: [0, 1, 0],
             }}
             transition={{
               duration: Math.random() * 3 + 2,
               repeat: Infinity,
-              delay: Math.random() * 2
+              delay: Math.random() * 2,
             }}
             style={{
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
+              top: `${Math.random() * 100}%`,
             }}
           />
         ))}
@@ -51,9 +54,10 @@ export function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-emerald-400 text-lg tracking-wider"
           >
-            안녕하세요, 저는
+            안녕하세요, 저는 서비스 안정성과 사용자 경험을 동시에 개선하는
+            방법을 고민
           </motion.p>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,7 +66,7 @@ export function HeroSection() {
           >
             김민석
           </motion.h1>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,24 +74,28 @@ export function HeroSection() {
             className="text-2xl md:text-4xl text-gray-300 mb-8"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+              2년차
+            </span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
               프론트엔드 개발자
             </span>
-            {' '}이자{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              React & TypeScript 전문가
-            </span>
+            입니다.
           </motion.div>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto mb-8"
           >
-            2년차 프론트엔드 개발자로, React와 TypeScript를 활용하여 사용자 경험을 최우선으로 하는 
-            웹 애플리케이션을 개발합니다. 성능 최적화와 타입 안정성을 중요하게 생각합니다.
+            새로운 문제 상황에서도 단순 구현에 그치지 않고,
+            <br />
+            유지보수성과 협업 효율을 높이는 방향을 찾으며 해결책을
+            제시해왔습니다.
+            <br /> 앞으로도 팀과 함께 성장하며 제품에 긍정적인 영향을 주는
+            개발자로 나아가고자 합니다.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,12 +108,12 @@ export function HeroSection() {
             >
               프로젝트 보기
             </Button>
-            
+
             <div className="flex items-center space-x-4">
               {[
-                { icon: Github, href: '#' },
-                { icon: Linkedin, href: '#' },
-                { icon: Mail, href: '#' }
+                { icon: Github, href: "#" },
+                { icon: Linkedin, href: "#" },
+                { icon: Mail, href: "#" },
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
@@ -121,12 +129,12 @@ export function HeroSection() {
             </div>
           </motion.div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -138,5 +146,5 @@ export function HeroSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
