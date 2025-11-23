@@ -148,7 +148,10 @@ export function SkillsSection() {
               "AWS S3",
               "CloudFront",
               "Bitbucket Pipelines",
+              "GitHub Actions",
               "Git",
+              "Cursor",
+              "MCP",
             ].map((tech, index) => (
               <motion.span
                 key={tech}
