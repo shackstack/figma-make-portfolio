@@ -236,11 +236,11 @@ export const PROJECTS_DATA = [
     featured: false,
   },
   {
-    title: "맘마미아 - 충무로 맛집 추천",
+    title: "충무로 맛집은 여기, 맘마미아",
     company: "개인 프로젝트",
     period: "2025.08 ~ 진행중",
     description:
-      "충무로역 1km 반경 내의 식당을 소개하여 직장인들의 점심 맛집을 추천해주는 서비스입니다. 개인 프로젝트로 최신 기술 스택과 자동화 도구를 활용하여 개발 생산성을 극대화했습니다.",
+      "충무로역 1km 반경 내의 식당을 소개하여, 직장인들의 점심 맛집을 추천해주는 서비스입니다. 개인 프로젝트로 최신 기술 스택과 자동화 도구를 활용하여 개발 생산성을 극대화했습니다.",
     image:
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop",
     technologies: [
@@ -248,16 +248,50 @@ export const PROJECTS_DATA = [
       "TypeScript",
       "Tanstack Query",
       "Vite",
-      "OpenAPI TS",
       "Emotion",
       "Storybook",
-      "AWS S3",
+      "OpenAPI TypeScript",
+      "S3",
+      "CloudFront",
     ],
     achievements: [
-      "OpenAPI TypeScript을 활용한 스키마 동기화 및 타입 생성 자동화",
-      "Figma MCP를 활용한 UI 작업 자동화로 개발 생산성 향상",
-      "Github MCP를 활용한 PR 생성 등 워크플로우 자동화",
-      "S3 + CloudFront 배포 환경 구축 및 Github Actions CI/CD 파이프라인 구축",
+      {
+        title: "OpenAPI TypeScript을 활용한 스키마 동기화 및 타입 생성 자동화",
+        problem:
+          "백엔드 API 스키마가 변경될 때마다 수동으로 타입을 업데이트해야 하여 개발 효율성이 떨어지고 타입 불일치 오류가 발생할 수 있었습니다.",
+        solution:
+          "OpenAPI TypeScript를 활용하여 API 스키마에서 타입을 자동으로 생성하고 동기화하는 시스템을 구축했습니다.",
+        result:
+          "타입 생성 과정이 자동화되어 개발 속도가 향상되었고, 타입 불일치로 인한 런타임 오류를 사전에 방지할 수 있게 되었습니다.",
+      },
+      {
+        title: "Figma, Github MCP를 활용한 업무(UI 작업 및 PR 생성 등) 자동화",
+        problem:
+          "UI 컴포넌트 개발과 PR 생성 등 반복적인 작업에 많은 시간이 소요되어 개발 생산성이 저하되었습니다.",
+        solution:
+          "Figma MCP를 활용하여 디자인에서 컴포넌트 코드를 자동 생성하고, Github MCP를 활용하여 PR 생성 등 워크플로우를 자동화했습니다.",
+        result:
+          "반복적인 작업이 자동화되어 개발 생산성이 크게 향상되었고, 개발자가 핵심 기능 개발에 더 집중할 수 있게 되었습니다.",
+      },
+      {
+        title:
+          "S3, CloudFront를 이용한 배포환경 구축 및 Github Action을 통해 배포 자동화",
+        problem:
+          "수동 배포 과정이 번거롭고 실수로 인한 배포 오류가 발생할 수 있었으며, 배포 속도가 느렸습니다.",
+        solution:
+          "S3와 CloudFront를 활용한 CDN 배포 환경을 구축하고, Github Actions를 통해 CI/CD 파이프라인을 구축하여 배포를 자동화했습니다.",
+        result:
+          "배포 과정이 자동화되어 배포 속도와 안정성이 크게 향상되었고, 개발자가 배포에 소요되는 시간을 절약할 수 있게 되었습니다.",
+      },
+      {
+        title: "접근 편의성 및 더 나은 모바일 경험 제공을 위해 PWA 개발",
+        problem:
+          "모바일 환경에서 웹사이트 접근성이 떨어지고, 네이티브 앱과 같은 사용자 경험을 제공하기 어려웠습니다.",
+        solution:
+          "Progressive Web App(PWA)을 개발하여 모바일에서 앱처럼 설치하고 사용할 수 있도록 구현했습니다.",
+        result:
+          "사용자 접근성이 향상되었고, 모바일에서 더 나은 사용자 경험을 제공할 수 있게 되었습니다.",
+      },
     ],
     github: "#",
     live: "#",
