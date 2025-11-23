@@ -58,17 +58,19 @@ export function AboutSection() {
               사용자 중심의 웹 경험을 만들어가는 개발자
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              2년차 프론트엔드 개발자로서 라텔앤드파트너즈에서 React와
-              TypeScript를 주력으로 다양한 프로젝트를 개발해왔습니다. WebView
-              환경에서의 네이티브-웹 통신, API 타입 자동화, 배포 파이프라인 구축
-              등 실무에서 직접 문제를 해결하며 성장해왔습니다.
+              2년차 프론트엔드 개발자로서 라텔앤드파트너즈에서 React,
+              TypeScript, Vanilla JS를 활용하여 다수의 프로젝트를
+              개발해왔습니다. 크리에이터클럽 프로젝트의 컨트리뷰터로서 React
+              기반 WebView 개발을 담당하며, 실무에서 직접 문제를 해결하며
+              성장해왔습니다.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              단순히 기능을 구현하는 것을 넘어, 개발 생산성을 높이고 유지보수가
-              쉬운 코드를 작성하는 것을 중요하게 생각합니다. OpenAPI를 활용한
-              타입 동기화 시스템 구축으로 PR 리드타임을 70% 단축하고, sendBeacon
-              API 최적화로 iOS 환경에서의 로깅 성공률을 100%로 개선한 경험이
-              있습니다.
+              단순히 기능을 구현하는 것을 넘어, 개발 생산성과 성능 최적화를
+              중요하게 생각합니다. AWS S3와 CloudFront를 활용한 CDN 배포 환경
+              구축 및 CI/CD 파이프라인을 통한 배포 자동화 경험이 있으며,
+              웹사이트 성능 최적화에 대한 지식을 공유하기 위해
+              우아한테크코스에서 번들 사이즈 최적화를 주제로 10분 테크톡을
+              진행한 경험이 있습니다.
             </p>
 
             <motion.div
@@ -78,7 +80,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="flex flex-wrap gap-3 mt-6"
             >
-              {["문제 해결", "타입 안정성", "성능 최적화", "협업 중시"].map(
+              {["WebView 개발", "배포 자동화", "성능 최적화", "지식 공유"].map(
                 (trait) => (
                   <span
                     key={trait}
