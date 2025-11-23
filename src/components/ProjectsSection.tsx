@@ -38,8 +38,8 @@ export function ProjectsSection() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and
-            passion for web development
+            현재 진행중인 주요 프로젝트를 Featured Projects, 지난 프로젝트를
+            Other Projects로 분류했습니다.
           </p>
         </motion.div>
 
@@ -222,7 +222,7 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -235,7 +235,7 @@ export function ProjectsSection() {
           >
             View All Projects
           </Button>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Project Detail Modal */}
