@@ -145,7 +145,7 @@ export const PROJECTS_DATA = [
     company: "우아한테크코스",
     period: "2023.06 ~ 2023.10",
     description:
-      "셀럽들이 다녀간 맛집 정보를 한눈에 파악할 수 있는 맛집 탐색 서비스입니다. 기획부터 개발, 배포, 운영까지 전 과정을 경험하며 WAU 2000명을 달성했습니다. 프론트엔드 3명, 백엔드 4명으로 구성된 팀에서 프론트엔드 개발 및 기획을 담당했습니다.",
+      "셀럽들이 다녀간 맛집에 대한 정보를 탐색하는 과정이 번거롭고 한 눈에 파악하기 어렵다는 문제에 착안하여 시작한 프로젝트입니다. 셀럽들이 다녀간 맛집, 인기 지역의 셀럽 맛집 정보, 지도를 통한 탐색 기능, 위시리스트, 그리고 사진 리뷰 등의 서비스를 제공하며 사용자 경험을 최적화했습니다. 프론트엔드 3명과 백엔드 4명으로 구성된 팀에서 진행되었으며, 주간 활성 사용자 수(WAU) 2000명을 달성하는 성과를 이루었습니다.",
     image:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
     technologies: [
@@ -159,11 +159,77 @@ export const PROJECTS_DATA = [
       "Storybook",
     ],
     achievements: [
-      "CloudFront CDN 구축으로 LCP 14.2초 → 2.4초 개선 (83% 향상)",
-      "Lighthouse Performance 점수 72점 → 89점 개선 (번들 최적화, 이미지 최적화)",
-      "Cypress E2E 테스트 자동화로 QA 비용 50% 절감",
-      "Google Analytics 기반 UX 개선으로 평균 참여 시간 37초 → 1분 40초 증가",
-      "PWA 적용 및 Next.js 오픈그래프 pre-rendering으로 SEO 최적화",
+      {
+        title: "S3와 CloudFront를 활용한 CDN 구축으로 로딩 속도 개선",
+        problem:
+          "초기 로딩 속도가 느려 LCP(Largest Contentful Paint)가 14.2초로 측정되어 사용자 경험이 저하되고 있었습니다.",
+        solution:
+          "S3와 CloudFront를 활용한 CDN 구축을 통해 정적 자산을 전 세계 엣지 서버에 분산 배치했습니다.",
+        result:
+          "LCP를 14.2초에서 2.4초로 대폭 개선(83% 향상)하여 사용자 경험을 크게 향상시켰습니다.",
+      },
+      {
+        title:
+          "Tree-shaking, Code-splitting 및 이미지 최적화를 통한 번들 사이즈 최적화",
+        problem:
+          "번들 사이즈가 커서 초기 로딩 속도가 느렸고, 이미지 포맷이 비효율적이어서 Lighthouse Performance 점수가 72점으로 낮았습니다.",
+        solution:
+          "Tree-shaking과 code-splitting을 활용하여 번들 사이즈를 최적화했고, JPEG에서 WebP로의 점진적 향상 및 gzip 압축을 적용하여 이미지 최적화를 달성했습니다. 또한 font-preload를 사용하여 폰트 로딩 지연 문제를 해결했습니다.",
+        result:
+          "Lighthouse Performance 점수를 72점에서 89점으로 향상시켰습니다.",
+      },
+      {
+        title: "Github Action을 이용한 Cypress E2E 테스트 자동화",
+        problem:
+          "수동 QA 테스트에 많은 시간과 비용이 소요되어 개발 효율성이 떨어졌습니다.",
+        solution:
+          "Github Action을 이용한 Cypress E2E 테스트 자동화를 구현하여 CI/CD 파이프라인에 통합했습니다.",
+        result: "QA 비용을 50% 절감하여 개발 효율성을 크게 향상시켰습니다.",
+      },
+      {
+        title: "Google Analytics 기반 UX 개선",
+        problem:
+          "사용자 행동 데이터가 부족하여 UX 개선 방향을 파악하기 어려웠고, 평균 참여 시간이 37초로 짧았습니다.",
+        solution:
+          "Google Analytics를 활용해 탈출률을 분석하고 사용자 행동 패턴을 파악하여 UX 개선 포인트를 도출했습니다.",
+        result:
+          "평균 참여 시간을 37초에서 1분 40초로 늘려 사용자 참여도를 크게 향상시켰습니다.",
+      },
+      {
+        title: "PWA 적용 및 Next.js 오픈그래프 pre-rendering을 통한 SEO 최적화",
+        problem:
+          "다양한 브라우저에서의 접근성이 부족했고, SNS 공유 시 미리보기 정보가 제대로 표시되지 않아 SEO와 사용자 경험이 저하되었습니다.",
+        solution:
+          "Progressive Web App(PWA)을 적용하여 다양한 브라우저에서의 접근성과 일관된 사용자 경험을 제공했고, Next.js의 오픈그래프 pre-rendering을 활용한 공유하기 기능을 구현하여 SEO를 최적화했습니다.",
+        result:
+          "크로스 브라우징 지원이 향상되었고, SNS 공유 시 적절한 미리보기 정보가 표시되어 사용자 유입이 개선되었습니다.",
+      },
+      {
+        title:
+          "비즈니스 로직 관심사 분리 및 useQueries 적용으로 네트워크 효율 개선",
+        problem:
+          "네트워크 요청이 순차적으로 발생하는 waterfall 현상으로 인해 전체 로딩 시간이 길어졌습니다.",
+        solution:
+          "비즈니스 로직의 관심사를 분리하고 React Query의 useQueries를 적용하여 병렬 데이터 페칭을 구현했습니다.",
+        result:
+          "네트워크 waterfall을 개선하여 전체 데이터 로딩 시간을 단축했습니다.",
+      },
+      {
+        title: "MSW와 Storybook 도입으로 개발 생산성 향상",
+        problem:
+          "백엔드 API가 준비되기 전까지 프론트엔드 개발이 지연되고, 컴포넌트 개발 시 소통 비용이 발생했습니다.",
+        solution:
+          "MSW(Mock Service Worker)를 도입하여 백엔드 API 없이도 프론트엔드 개발을 진행할 수 있도록 했고, Storybook을 도입하여 컴포넌트를 독립적으로 개발하고 문서화했습니다.",
+        result: "소통 비용을 줄이고 개발 생산성을 크게 증가시켰습니다.",
+      },
+      {
+        title: "Zustand와 React-Query를 활용한 상태 관리 최적화",
+        problem:
+          "클라이언트 상태와 서버 상태가 혼재되어 있어 상태 관리가 복잡하고 비효율적이었습니다.",
+        solution:
+          "Zustand를 클라이언트 상태 관리에, React-Query를 서버 상태 관리에 활용하여 관심사를 효과적으로 분리했습니다.",
+        result: "상태 관리가 명확해지고 유지보수성이 향상되었습니다.",
+      },
     ],
     github: "#",
     live: "#",
